@@ -7,7 +7,7 @@ def home_view(request):
     form = ContactForm(request.POST or None)
     if form.is_valid():
         form.save()
-        # form = ContactForm()
+        form = ContactForm()
 
     return render(request, "index.html", {"form": form})
 
