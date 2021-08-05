@@ -1,3 +1,4 @@
+from home.models import Teacher
 from home.forms import ContactForm
 from django.shortcuts import render
 
@@ -15,5 +16,9 @@ def about_view(request):
     return render(request, "about.html")
 
 def teacher_view(request):
-    return render(request, "teacher.html")
+    teachers = Teacher.objects.all()
+    context = {
+        "teachers": teachers
+    }
+    return render(request, "teacher.html", context)
 
